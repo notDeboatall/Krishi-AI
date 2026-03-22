@@ -1,44 +1,57 @@
-# Krishi AI - Smart Agriculture Platform 🌾
+# Krishi AI - Personal Enhanced Version 🌾
 
-Krishi AI is a comprehensive digital ecosystem designed to empower farmers with AI-driven insights, real-time data, and traditional wisdom.
+Krishi AI is a comprehensive digital ecosystem designed to empower farmers with AI-driven insights, real-time data, and traditional wisdom. This project is an independent, enhanced version of an earlier team collaboration, refined to demonstrate advanced full-stack development and AI integration.
+
+## 🌟 Project Overview
+
+Krishi AI bridges the gap between traditional farming and modern technology. It provides a centralized platform where farmers can access critical information—from disease diagnosis to market prices—using an intuitive, multi-lingual interface.
 
 ## 🚀 Key Features
 
-- **Intelligent Crop Doctor**: Upload leaf images to diagnose diseases using advanced Hugging Face vision models. Rejects non-crop images and provides structured treatment advice.
-- **AI Agriculture Chat**: Multi-lingual (Hindi, Odia, English) chat assistant for practical farming guidance, powered by Groq and Llama 3.
-- **Live Mandi Prices**: Real-time market data from `Data.gov.in` with state and district filtering.
-- **Weather & Forecast**: Hyper-local weather updates to plan harvesting and irrigation.
-- **Voice Assistant**: Specialized support for regional Odia-speaking farmers using Google Cloud STT/TTS.
-- **Government Schemes**: Curated list of agricultural schemes with direct links to official applications.
+- **Intelligent Crop Doctor**: A state-of-the-art diagnostic tool that uses Hugging Face vision models to identify crop diseases from leaf images and provide actionable treatment advice.
+- **AI Agriculture Chat**: A multi-lingual (Hindi, Odia, English) assistant powered by Groq and Llama 3, offering expert advice on farming practices.
+- **Live Mandi Prices**: Real-time market data fetched via the `Data.gov.in` API, featuring granular state and district-level filtering.
+- **Hyper-Local Weather**: Precise weather forecasts to help farmers optimize harvesting and irrigation schedules.
+- **Regional Voice Assistant**: Specialized support for regional Odia-speaking farmers using Google Cloud's Speech-to-Text and Text-to-Speech services.
+- **Government Schemes Directory**: A curated database of agricultural schemes with direct links for application.
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: React, Vite, TypeScript, Tailwind CSS, Framer Motion, Lucide Icons.
-- **Backend**: Node.js, Express, Multer (file handling).
-- **AI/ML**: Groq (Llama 3), Hugging Face (Vision), Gemini API.
-- **Services**: Google Cloud (Speech-to-Text & Text-to-Speech), Data.gov.in API.
+- **Frontend**: React.js, Vite, TypeScript, Tailwind CSS, Framer Motion (for smooth animations), Lucide Icons.
+- **Backend**: Node.js, Express.js, Multer (robust file handling).
+- **AI/ML Integration**: Groq (Llama 3), Hugging Face (Vision Models), Google Gemini API.
+- **Third-Party Services**: Google Cloud Platform (STT/TTS), Data.gov.in Open API.
 
-## 📦 Project Structure
+## 💡 My Contributions & Refinements
 
-```text
-.
-├── src/            # Frontend Source (React Components, Pages, Contexts)
-├── public/         # Static assets
-├── backend/        # Express Server
-│   ├── server.js   # Main API logic
-│   └── uploads/    # Temporary image storage (Git ignored)
-└── README.md
-```
+- **AI Model Integration**: Orchestrated the integration of multiple AI providers (Groq, HF, Gemini) to provide a seamless user experience for both text and image-based queries.
+- **API Optimization**: Refined the backend logic for fetching and filtering real-time mandi data, ensuring low latency and reliable fallback mechanisms.
+- **Enhanced UX/UI**: Polished the frontend components using Tailwind CSS and Framer Motion to create a professional, "premium" feel suitable for a portfolio.
+- **Multi-lingual Support**: Implemented robust handling for regional languages to ensure accessibility for the primary user base.
+- **Codebase Cleanup**: Standardized the project structure, optimized environment variable management, and established a clean development workflow.
+
+## 📈 Future Improvements
+
+- **IoT Integration**: Supporting real-time soil moisture and nutrient sensors for precision agriculture.
+- **Direct Marketplace**: Developing a peer-to-peer marketplace for farmers to sell produce directly to consumers.
+- **Community Hub**: A forum for farmers to share local knowledge and peer-to-peer advice.
+
+---
 
 ## ⚙️ Setup & Installation
 
 ### 1. Prerequisites
 - Node.js 18+
-- API Keys for: Groq, Hugging Face, Gemini, and Data.gov.in.
+- API Keys: Groq, Hugging Face, Gemini, Data.gov.in.
 
 ### 2. Environment Variables
 
-Create a `.env` file in the **backend** directory:
+**Root Directory (`.env`):**
+```env
+VITE_GEMINI_API_KEY=your_key
+```
+
+**Backend Directory (`backend/.env`):**
 ```env
 GROQ_API_KEY=your_key
 HF_API_KEY=your_key
@@ -47,45 +60,20 @@ DATA_GOV_IN_API_KEY=your_key
 PORT=3001
 ```
 
-Create a `.env` file in the **root** directory:
-```env
-VITE_GEMINI_API_KEY=your_key
-```
+### 3. Running Locally
 
-### 3. Installation
-
-**Frontend:**
 ```sh
+# Install Frontend dependencies
 npm install
-```
 
-**Backend:**
-```sh
+# Install Backend dependencies
 cd backend
 npm install
-```
 
-### 4. Running Locally
+# Start development servers (in separate terminals)
+# Frontend:
+npm run dev
 
-**Start Backend (Port 3001):**
-```sh
-cd backend
+# Backend:
 npm run dev
 ```
-
-**Start Frontend (Vite):**
-```sh
-npm run dev
-```
-
-## 📜 Development Notes
-- The **Crop Doctor** uses `FormData` for binary image transmission to ensure high accuracy.
-- **Local Fallback**: If `Data.gov.in` keys aren't provided, the app serves high-fidelity mock data for demonstration.
-
-## 👥 Contributors
-- Saket Kumar Seth
-- Debojeet
-- Subhadeep Sharma
-- Subhra Padhy
-- Aditya Kumar Dutta
-- Kritika Sahoo

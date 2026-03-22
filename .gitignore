@@ -25,6 +25,8 @@ tmp/
 .temp/
 .gemini/
 .vercel/
+.vite/
+lint_results.*
 
 # Editor directories and files
 .vscode/*
