@@ -105,7 +105,7 @@ const Weather = () => {
       3. A specific action for the farmer. 
       Keep it practical and helpful.`;
 
-      const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:3001";
+      const backendUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
       const res = await fetch(`${backendUrl}/api/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },

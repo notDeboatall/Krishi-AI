@@ -41,7 +41,7 @@ const upload = multer({ storage });
 const getGeminiClient = () => {
   const apiKey = process.env.GEMINI_API_KEY || process.env.VITE_GEMINI_API_KEY;
 
-  if (!apiKey || apiKey === 'your_gemini_api_key_here') {
+  if (!apiKey) {
     return null;
   }
 
@@ -137,7 +137,7 @@ app.post('/api/chat', limiter, upload.single('image'), async (req, res) => {
 
   const apiKey = process.env.GROQ_API_KEY;
 
-  if (!apiKey || apiKey === 'YOUR_GROQ_API_KEY_HERE') {
+  if (!apiKey) {
     return res.status(500).json({ error: "AI service failed" });
   }
 
@@ -355,7 +355,7 @@ app.post('/api/analyze-image', limiter, upload.single('image'), async (req, res)
 
   const apiKey = process.env.HF_API_KEY;
 
-  if (!apiKey || apiKey === 'YOUR_HF_API_KEY_HERE') {
+  if (!apiKey) {
     console.error('[API/ANALYZE-IMAGE] Error: HF_API_KEY missing');
     safeUnlink(imageFilePath);
     return res.status(500).json({ error: 'Missing HF_API_KEY configuration in Render' });
@@ -546,7 +546,7 @@ app.get('/api/market-prices', limiter, async (req, res) => {
   }
 });
 
-const PORT = Number(process.env.PORT) || 3001;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`[SYSTEM] Backend running on port ${PORT}`);
   

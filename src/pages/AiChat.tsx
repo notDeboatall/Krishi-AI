@@ -196,7 +196,7 @@ const AiChat = () => {
         formData.append("image", currentImage);
         formData.append("prompt", currentInput || "Analyze this image and identify any diseases or crop conditions.");
         
-        const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:3001";
+        const backendUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
         const response = await fetch(`${backendUrl}/api/chat`, {
   method: "POST",
   body: formData,
@@ -230,7 +230,7 @@ const AiChat = () => {
         if (!isCorrectLanguage(aiText, language)) {
           // Language mismatch detected, retrying with stricter prompt
           const stricterPrompt = language === "hi" ? "Respond strictly in Hindi only." : "Respond strictly in Odia language only.";
-          const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:3001";
+          const backendUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
           const retryResponse = await fetch(`${backendUrl}/api/chat`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
